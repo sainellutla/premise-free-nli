@@ -1,0 +1,4 @@
+subset,n_examples,pct_of_test,n_entailment,pct_entailment,n_neutral,pct_neutral,n_contradiction,pct_contradiction,full_input_accuracy,full_input_macro_f1
+easy,6290,64.0269,2259,35.9141,2063,32.7981,1968,31.2878,0.9159,0.9157
+hard,3534,35.9731,1109,31.3809,1156,32.7108,1269,35.9083,0.3172,0.3148
+all,9824,100.0000,3368,34.2834,3219,32.7667,3237,32.9499,0.7005,0.6993

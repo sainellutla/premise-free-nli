@@ -1,0 +1,4 @@
+setting,ngram_range,n_features,accuracy,macro_f1,n_test_all_zero_rows,train_time_sec,n_iter,notes
+"Unigrams (1,1)","(1, 1)",5000,0.6388,0.6383,3,72.1355,218,
+"Bigrams (2,2)","(2, 2)",5000,0.5948,0.5938,509,52.0956,167,
+"Uni + bigrams (1,2)","(1, 2)",5000,0.6403,0.6398,7,,174,reused saved model (models/logreg_hyp.joblib)

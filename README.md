@@ -22,9 +22,13 @@ Run from the repo root, in this order:
 .\venv\Scripts\python.exe src\data.py             # Step 2: download SNLI + MultiNLI, dataset stats, Figs 2-3
 .\venv\Scripts\python.exe src\evaluate.py         # Steps 3-5: features, train all models, test metrics, 5-fold CV, Figs 4-5
 .\venv\Scripts\python.exe src\rerun_rf_timing.py  # Re-times the RandomForest fit with sleep blocked (see PROBLEMS.md P4/P9)
+.\venv\Scripts\python.exe src\learning_curve.py   # Step A1: learning curve (1K-full), Fig 6
+.\venv\Scripts\python.exe src\feature_ablation.py # Step A2: unigram / bigram / both ablation, Fig 7
+.\venv\Scripts\python.exe src\transfer.py         # Step B1: SNLI-trained models on MultiNLI matched/mismatched, Fig 8
+.\venv\Scripts\python.exe src\easy_hard.py        # Step B2: easy/hard split of SNLI test, Fig 9
 ```
 
-`src/features.py` and `src/models.py` are imported by `evaluate.py`; you don't run them directly.
+`src/features.py` and `src/models.py` are imported by the other scripts; you don't run them directly. Steps A1–B2 reuse the models and vectorizers saved by `evaluate.py` in `models/`, so run `evaluate.py` first.
 
 Runtime notes:
 - `evaluate.py` takes roughly 10–20 minutes on a 12-thread laptop CPU. The RandomForest (200 trees) is the slowest part.
@@ -43,12 +47,21 @@ src/
   models.py           model definitions and the stratified 100k subsample
   evaluate.py         training, test evaluation, 5-fold CV, Figs 4-5, saves models/
   rerun_rf_timing.py  RandomForest timing rerun
+  learning_curve.py   A1: hypothesis-only LogReg vs. training-set size
+  feature_ablation.py A2: n-gram range ablation
+  transfer.py         B1: MultiNLI transfer of SNLI-trained models
+  easy_hard.py        B2: easy/hard split by hypothesis-only correctness
 results/
   dataset_stats.csv       examples and hypothesis length (mean/median) per split and label
   top_frequent_words.csv  top-20 hypothesis words per label (train, stopwords removed except negations)
   model_results.csv       SNLI test accuracy, macro F1, per-class P/R/F1, training time per model
   cv_results.csv          5-fold stratified CV accuracy (100k subsample)
-figures/     fig2_label_distribution, fig3_hypothesis_length, fig4_model_accuracy, fig5_confusion_matrix (300 dpi)
+  learning_curve.csv      accuracy / macro F1 per training size (mean ± std over 3 seeds for ≤10K)
+  learning_curve_runs.csv per-seed learning-curve runs
+  feature_ablation.csv    accuracy / macro F1 for (1,1), (2,2), (1,2) n-grams
+  transfer.csv            accuracy / macro F1 on SNLI test, MNLI matched, MNLI mismatched
+  easy_hard.csv           easy/hard counts, label breakdown, full-input accuracy / macro F1 per subset
+figures/     fig2_label_distribution … fig9_easy_hard (300 dpi)
 models/      saved models and vectorizers (gitignored)
 PROBLEMS.md  log of every problem hit and every design choice
 ```

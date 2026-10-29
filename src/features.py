@@ -39,6 +39,14 @@ def overlap_features(premises, hypotheses):
     return out
 
 
+def transform_full(transformers, df):
+    """Apply already-fitted full-input transformers (from build_full_features) to new data."""
+    P = transformers["premise_vec"].transform(df["premise"])
+    H = transformers["hypothesis_vec"].transform(df["hypothesis"])
+    O = transformers["overlap_scaler"].transform(overlap_features(df["premise"], df["hypothesis"]))
+    return sparse.hstack([P, H, sparse.csr_matrix(O)], format="csr")
+
+
 def build_full_features(train, val, test):
     """Premise TF-IDF + hypothesis TF-IDF + 3 standardized overlap features.
     Returns (transformers_dict, X_train, X_val, X_test)."""
