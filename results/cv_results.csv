@@ -1,0 +1,4 @@
+model,n_examples,n_folds,fold1_acc,fold2_acc,fold3_acc,fold4_acc,fold5_acc,mean_acc,std_acc,mean_fold_fit_time_sec,fit_warnings
+LogReg (hyp-only),100000,5,0.6194,0.6101,0.6149,0.6198,0.6143,0.6157,0.0036,6.0738,
+MultinomialNB (hyp-only),100000,5,0.5975,0.5858,0.5976,0.5996,0.5908,0.5943,0.0052,3.4938,
+LinearSVC (hyp-only),100000,5,0.6172,0.6081,0.6098,0.6138,0.6104,0.6119,0.0033,9.6368,

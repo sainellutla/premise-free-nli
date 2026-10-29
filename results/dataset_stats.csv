@@ -1,0 +1,13 @@
+split,label,n_examples,pct_of_split,hyp_len_mean,hyp_len_median
+train,entailment,183416,33.39,6.63,6.0
+train,neutral,182764,33.27,8.258,8.0
+train,contradiction,183187,33.35,7.363,7.0
+train,ALL,549367,100.0,7.416,7.0
+validation,entailment,3329,33.82,6.811,6.0
+validation,neutral,3235,32.87,8.346,8.0
+validation,contradiction,3278,33.31,7.397,7.0
+validation,ALL,9842,100.0,7.511,7.0
+test,entailment,3368,34.28,6.838,6.0
+test,neutral,3219,32.77,8.351,8.0
+test,contradiction,3237,32.95,7.289,7.0
+test,ALL,9824,100.0,7.482,7.0
