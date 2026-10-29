@@ -1,0 +1,11 @@
+rank,feature,strongest_toward_label,n_present_in_sample,spearman_rho_neutral_shap_vs_hyp_length,p_value
+1,the,neutral,427,0.08481,0.007284
+2,is,neutral,396,-0.06583,0.0374
+3,are,neutral,218,-0.0641,0.04272
+4,to,neutral,93,0.2348,5.457e-14
+5,in,neutral,190,0.2732,1.397e-18
+6,people,entailment,114,0.02851,0.3678
+7,nobody,contradiction,12,0.1717,4.654e-08
+8,for,neutral,33,0.1321,2.802e-05
+9,on,neutral,117,0.1731,3.61e-08
+10,at,neutral,78,0.1388,1.064e-05

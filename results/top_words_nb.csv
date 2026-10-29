@@ -1,0 +1,61 @@
+label,rank,feature,log_prob_ratio
+entailment,1,some humans,4.6291
+entailment,2,least two,3.9166
+entailment,3,picture and,3.6491
+entailment,4,this picture,3.3901
+entailment,5,than one,3.3770
+entailment,6,at least,3.2965
+entailment,7,least,3.2364
+entailment,8,wearing clothing,3.2194
+entailment,9,are outdoors,2.9593
+entailment,10,holding something,2.9058
+entailment,11,people outdoors,2.8803
+entailment,12,is outdoors,2.8372
+entailment,13,near each,2.8018
+entailment,14,humans are,2.8005
+entailment,15,motion,2.7235
+entailment,16,are multiple,2.7125
+entailment,17,interacting,2.7111
+entailment,18,is more,2.6751
+entailment,19,people present,2.6746
+entailment,20,has something,2.6507
+neutral,1,tall human,5.7549
+neutral,2,tall humans,5.2018
+neutral,3,joyously,4.9662
+neutral,4,are siblings,4.5349
+neutral,5,tall people,4.3569
+neutral,6,are brothers,4.2718
+neutral,7,are sisters,4.2426
+neutral,8,tall person,4.2003
+neutral,9,are friends,3.9135
+neutral,10,sad man,3.8325
+neutral,11,two sad,3.7969
+neutral,12,impress,3.7532
+neutral,13,to impress,3.7301
+neutral,14,for competition,3.6532
+neutral,15,are married,3.6483
+neutral,16,sad woman,3.5944
+neutral,17,championship,3.5121
+neutral,18,practicing for,3.4884
+neutral,19,is winning,3.4641
+neutral,20,best friends,3.4479
+contradiction,1,nobody is,6.1162
+contradiction,2,nobody,6.0841
+contradiction,3,nobody has,6.0274
+contradiction,4,home sleeping,4.8551
+contradiction,5,two cats,4.7406
+contradiction,6,on mars,4.7169
+contradiction,7,cats are,4.1231
+contradiction,8,home watching,4.0391
+contradiction,9,inside watching,4.0047
+contradiction,10,no people,3.9644
+contradiction,11,mars,3.9587
+contradiction,12,is naked,3.6804
+contradiction,13,are no,3.6766
+contradiction,14,is sleep,3.5991
+contradiction,15,frowning,3.4885
+contradiction,16,his couch,3.4309
+contradiction,17,no one,3.4259
+contradiction,18,are sleeping,3.3976
+contradiction,19,nothing,3.3652
+contradiction,20,is no,3.3627

@@ -1,0 +1,16 @@
+label,method_a,method_b,n_union_features,spearman_rho,p_value
+entailment,LR coef,LR SHAP,224,0.2337,0.0004193
+entailment,LR coef,NB log-ratio,224,0.1484,0.02633
+entailment,LR SHAP,NB log-ratio,224,-0.5477,6.255e-19
+neutral,LR coef,LR SHAP,237,-0.07187,0.2704
+neutral,LR coef,NB log-ratio,237,0.4476,4.442e-13
+neutral,LR SHAP,NB log-ratio,237,-0.7123,5.471e-38
+contradiction,LR coef,LR SHAP,219,0.007387,0.9134
+contradiction,LR coef,NB log-ratio,219,0.4002,7.867e-10
+contradiction,LR SHAP,NB log-ratio,219,-0.4697,2.028e-13
+MEAN over classes,LR coef,LR SHAP,,0.05642,
+MEAN over classes,LR coef,NB log-ratio,,0.3321,
+MEAN over classes,LR SHAP,NB log-ratio,,-0.5766,
+class-averaged magnitude,RF Gini,LR coef,276,-0.2709,4.961e-06
+class-averaged magnitude,RF Gini,LR SHAP,276,0.8915,3.339e-96
+class-averaged magnitude,RF Gini,NB log-ratio,276,-0.7491,6.4e-51

@@ -26,13 +26,25 @@ Run from the repo root, in this order:
 .\venv\Scripts\python.exe src\feature_ablation.py # Step A2: unigram / bigram / both ablation, Fig 7
 .\venv\Scripts\python.exe src\transfer.py         # Step B1: SNLI-trained models on MultiNLI matched/mismatched, Fig 8
 .\venv\Scripts\python.exe src\easy_hard.py        # Step B2: easy/hard split of SNLI test, Fig 9
+.\venv\Scripts\python.exe src\explain.py          # Step 7: LR coef / NB / LR SHAP rankings, agreement (+ RF Gini),
+                                                  #         frequency and length checks, Figs 10-13
+.\venv\Scripts\python.exe src\removal.py          # Step 8: shortcut removal, both random controls, Figs 14 and 14b
+.\venv\Scripts\python.exe src\errors.py           # Step 9: 15 error-analysis examples
 ```
 
-`src/features.py` and `src/models.py` are imported by the other scripts; you don't run them directly. Steps A1–B2 reuse the models and vectorizers saved by `evaluate.py` in `models/`, so run `evaluate.py` first.
+`src/features.py` and `src/models.py` are imported by the other scripts; you don't run them directly. Every step after `evaluate.py` reuses the models and vectorizers it saves in `models/`, so run `evaluate.py` first. `removal.py` reads `results/shap_lr.csv`, so run `explain.py` before it.
+
+How the reruns are reproduced:
+- **RandomForest timing:** `rerun_rf_timing.py` refits only the RandomForest with sleep blocked and replaces its `train_time_sec` (PROBLEMS.md P4, P9).
+- **Step 7 checks:** the RF Gini comparison, the frequency check and the length check are built into `explain.py`. One run regenerates every Step 7 output.
+- **Step 8 controls:** `removal.py` computes both random controls in one run:
+  - the original 20-bin frequency match (Fig 14b)
+  - the post-hoc nearest-frequency-rank match (Fig 14; PROBLEMS.md P20, P23)
 
 Runtime notes:
 - `evaluate.py` takes roughly 10–20 minutes on a 12-thread laptop CPU. The RandomForest (200 trees) is the slowest part.
 - Keep the machine awake while it runs, because sleep inflates the recorded wall-clock times.
+- `explain.py` loads the 1.4 GB RandomForest for its Gini importances and needs a few GB of free RAM. The other steps after `evaluate.py` take a few minutes each.
 - Trained models are saved to `models/`, which is gitignored. The RandomForest file is about 1.4 GB.
 
 Random seed 42 is used everywhere. All vectorizers and scalers are fit on the training split only. In cross-validation, the TF-IDF vectorizer is refit inside each fold.
@@ -51,6 +63,9 @@ src/
   feature_ablation.py A2: n-gram range ablation
   transfer.py         B1: MultiNLI transfer of SNLI-trained models
   easy_hard.py        B2: easy/hard split by hypothesis-only correctness
+  explain.py          7: explanation rankings, SHAP, agreement, frequency/length checks
+  removal.py          8: shortcut-word removal vs. frequency-matched random controls
+  errors.py           9: error-analysis examples
 results/
   dataset_stats.csv       examples and hypothesis length (mean/median) per split and label
   top_frequent_words.csv  top-20 hypothesis words per label (train, stopwords removed except negations)
@@ -61,7 +76,17 @@ results/
   feature_ablation.csv    accuracy / macro F1 for (1,1), (2,2), (1,2) n-grams
   transfer.csv            accuracy / macro F1 on SNLI test, MNLI matched, MNLI mismatched
   easy_hard.csv           easy/hard counts, label breakdown, full-input accuracy / macro F1 per subset
-figures/     fig2_label_distribution … fig9_easy_hard (300 dpi)
+  top_words_lr.csv        top-20 features per label by LR coefficient
+  top_words_nb.csv        top-20 features per label by NB log-probability ratio (class vs rest)
+  top_words_shap_lr.csv   top-20 features per label by LR SHAP (toward-class)
+  shap_lr.csv             per-feature mean |SHAP|, mean SHAP when present, toward score, per class
+  agreement.csv           Spearman ρ between methods per class, plus RF Gini (class-averaged)
+  ranking_vs_frequency.csv  Spearman ρ of each method's ranking vs train document frequency
+  shap_vs_length.csv      neutral-class SHAP vs hypothesis length, top-10 features
+  removal.csv             accuracy after removing top-k shortcut words vs random controls (control_method column)
+  removal_random_runs.csv per-seed random-control runs and the words removed
+  error_examples.csv      15 test examples with both models' predictions and top-3 SHAP features
+figures/     fig2_label_distribution … fig14_removal, fig14b_removal_bin_control (300 dpi)
 models/      saved models and vectorizers (gitignored)
 PROBLEMS.md  log of every problem hit and every design choice
 ```
@@ -79,3 +104,11 @@ The full list is in [PROBLEMS.md](PROBLEMS.md).
 - **RandomForest:** trained on a **stratified 100,000-example subsample** of train (seed 42) to keep training feasible on CPU. The same subsample is used for 5-fold CV of LogReg, MultinomialNB and LinearSVC.
 - **Top-frequent-words table:** excludes scikit-learn's English stopwords but **keeps negation words** (no, not, nobody, never, nothing, …), since they're known contradiction cues.
 - **Training time:** wall-clock time of `model.fit` only.
+- **Explanations:** all per-class rankings rank features by how much they push *toward* the class (D16).
+  - **LR SHAP:** LinearSHAP, with the exact training-set feature means as background, on a fixed random sample of 1,000 test examples (seed 42).
+  - **RandomForest SHAP:** dropped. Exact TreeSHAP wasn't computationally feasible on this hardware (P16). RF Gini importance is used as a class-agnostic fourth method instead (D23).
+- **Shortcut removal:** words are deleted from test hypotheses without retraining. Two rankings are compared:
+  - LR SHAP
+  - max |LR coefficient|, among words in ≥0.1% of train hypotheses
+
+  The main random control matches each removed word to the word nearest it in train-frequency rank. This was a **post-hoc** change, made after the original 20-bin control turned out to be poorly matched (P20, P23). The original control is kept in `removal.csv` and in Fig 14b.

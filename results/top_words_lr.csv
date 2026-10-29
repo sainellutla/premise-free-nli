@@ -1,0 +1,61 @@
+label,rank,feature,coefficient
+entailment,1,making music,2.8217
+entailment,2,is near,2.7710
+entailment,3,something,2.6715
+entailment,4,not standing,2.6614
+entailment,5,interacting,2.6053
+entailment,6,this picture,2.5952
+entailment,7,near each,2.5655
+entailment,8,are by,2.5104
+entailment,9,are near,2.4478
+entailment,10,an animal,2.4070
+entailment,11,at least,2.3800
+entailment,12,in this,2.3677
+entailment,13,least,2.3606
+entailment,14,wearing clothes,2.3583
+entailment,15,humans,2.3564
+entailment,16,motion,2.3523
+entailment,17,are outdoors,2.3441
+entailment,18,knows how,2.3069
+entailment,19,wearing clothing,2.3011
+entailment,20,human,2.2532
+neutral,1,joyously,5.6753
+neutral,2,sad,4.2293
+neutral,3,tall human,4.0943
+neutral,4,championship,4.0511
+neutral,5,siblings,3.8787
+neutral,6,sad man,3.8232
+neutral,7,favorite,3.6539
+neutral,8,tall,3.5399
+neutral,9,tall person,3.4891
+neutral,10,funny,3.4728
+neutral,11,happily,3.4591
+neutral,12,because,3.4319
+neutral,13,tall humans,3.4299
+neutral,14,famous,3.4060
+neutral,15,for,3.3568
+neutral,16,brothers,3.2280
+neutral,17,friends,3.1728
+neutral,18,vacation,3.1684
+neutral,19,sisters,3.0816
+neutral,20,owner,3.0732
+contradiction,1,nobody,6.6460
+contradiction,2,nothing,5.4179
+contradiction,3,no,5.0975
+contradiction,4,cats,4.1352
+contradiction,5,frowning,3.8530
+contradiction,6,never,3.6631
+contradiction,7,at home,3.6386
+contradiction,8,cat,3.6370
+contradiction,9,mars,3.6206
+contradiction,10,nobody is,3.5681
+contradiction,11,naked,3.5409
+contradiction,12,sleeping,3.5338
+contradiction,13,only,3.4957
+contradiction,14,jacks,3.4737
+contradiction,15,silent,3.4247
+contradiction,16,anything,3.4068
+contradiction,17,quietly,3.2555
+contradiction,18,solid,3.1867
+contradiction,19,don,3.1119
+contradiction,20,one person,3.0793

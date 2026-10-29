@@ -1,0 +1,10 @@
+label,method,n_union_features,spearman_rho_vs_train_doc_freq,p_value
+entailment,LR coef,224,-0.1136,0.08987
+entailment,LR SHAP,224,0.8619,2.01e-67
+entailment,NB log-ratio,224,-0.5662,2.188e-20
+neutral,LR coef,237,-0.2695,2.601e-05
+neutral,LR SHAP,237,0.8975,1.562e-85
+neutral,NB log-ratio,237,-0.7768,4.258e-49
+contradiction,LR coef,219,-0.3397,2.582e-07
+contradiction,LR SHAP,219,0.857,2.054e-64
+contradiction,NB log-ratio,219,-0.6077,1.686e-23

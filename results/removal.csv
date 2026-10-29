@@ -1,0 +1,33 @@
+ranking,condition,control_method,k,accuracy_mean,accuracy_std,n_seeds,n_test_hyp_changed,mean_train_doc_freq,n_fallback_draws,mean_rank_distance,n_distinct_word_sets,words
+LR SHAP,none,,0,0.6403,,1,0.0000,,0,,,
+LR SHAP,shortcut,,5,0.6077,,1,7939.0000,147464.0000,0,,,the is are to in
+LR SHAP,random,bin-matched (20 DF bins),5,0.6390,0.0019,5,562.8000,6577.4400,0,,5.0000,
+LR SHAP,random,nearest DF rank,5,0.6424,0.0000,5,1522.0000,18006.8000,0,24.4000,1.0000,
+LR SHAP,shortcut,,10,0.5886,,1,8583.0000,93477.0000,0,,,the is are to in people nobody for on at
+LR SHAP,random,bin-matched (20 DF bins),10,0.6376,0.0013,5,1173.0000,6923.7200,0,,5.0000,
+LR SHAP,random,nearest DF rank,10,0.6396,0.0000,5,2088.0000,12756.4000,0,26.5000,1.0000,
+LR SHAP,shortcut,,20,0.5720,,1,9151.0000,61156.9500,0,,,the is are to in people nobody for on at sleeping person there outside his two playing woman of no
+LR SHAP,random,bin-matched (20 DF bins),20,0.6340,0.0011,5,2292.0000,7154.8100,0,,5.0000,
+LR SHAP,random,nearest DF rank,20,0.6361,0.0002,5,3072.4000,9571.0500,0,32.8900,4.0000,
+LR SHAP,shortcut,,50,0.5420,,1,9470.0000,30960.6000,0,,,the is are to in people nobody for on at sleeping person there outside his two playing woman of no her an friends outdoors sitting has park inside after new some and down eating group their child black human while young something wearing home couple tall they not cat with
+LR SHAP,random,bin-matched (20 DF bins),50,0.6281,0.0007,5,4489.8000,6509.2840,5,,5.0000,
+LR SHAP,random,nearest DF rank,50,0.6246,0.0004,5,4529.4000,6591.4040,0,33.4080,5.0000,
+LR SHAP,shortcut,,100,0.5148,,1,9687.0000,19218.5500,0,,,the is are to in people nobody for on at sleeping person there outside his two playing woman of no her an friends outdoors sitting has park inside after new some and down eating group their child black human while young something wearing home couple tall they not cat with she other old nothing he tv because boy bed about walking just man near running red water school indoors watching dog each winning beach before sad cats all blue dressed from dancing working baseball family standing car white sleep three riding performing ocean out basketball swimming friend party yellow mars
+LR SHAP,random,bin-matched (20 DF bins),100,0.6175,0.0020,5,5602.0000,4550.8600,125,,5.0000,
+LR SHAP,random,nearest DF rank,100,0.6157,0.0008,5,5745.8000,4735.3240,0,34.1320,5.0000,
+LR coef (DF>=0.1%),none,,0,0.6403,,1,0.0000,,0,,,
+LR coef (DF>=0.1%),shortcut,,5,0.6320,,1,148.0000,1807.2000,0,,,nobody nothing no because sad
+LR coef (DF>=0.1%),random,bin-matched (20 DF bins),5,0.6394,0.0009,5,152.4000,1797.0000,0,,5.0000,
+LR coef (DF>=0.1%),random,nearest DF rank,5,0.6397,0.0001,5,152.6000,1811.5200,0,1.2000,4.0000,
+LR coef (DF>=0.1%),shortcut,,10,0.6156,,1,4263.0000,25723.2000,0,,,nobody nothing no because sad cats the only favorite cat
+LR coef (DF>=0.1%),random,bin-matched (20 DF bins),10,0.6380,0.0025,5,622.2000,3479.0200,0,,5.0000,
+LR coef (DF>=0.1%),random,nearest DF rank,10,0.6373,0.0003,5,2387.6000,14038.4400,0,1.2000,5.0000,
+LR coef (DF>=0.1%),shortcut,,20,0.5927,,1,4760.0000,15334.1000,0,,,nobody nothing no because sad cats the only favorite cat naked tall sleeping happily something movie for brothers home friends
+LR coef (DF>=0.1%),random,bin-matched (20 DF bins),20,0.6330,0.0024,5,1384.8000,4172.7500,0,,5.0000,
+LR coef (DF>=0.1%),random,nearest DF rank,20,0.6329,0.0011,5,2996.2000,9481.4100,0,1.1000,5.0000,
+LR coef (DF>=0.1%),shortcut,,50,0.5609,,1,6170.0000,9886.3200,0,,,nobody nothing no because sad cats the only favorite cat naked tall sleeping happily something movie for brothers home friends vacation owner lost tv alone date after competition not to lunch new winning sleep in human humans professional homeless friend first empty crying tired before television birthday wife just dinner
+LR coef (DF>=0.1%),random,bin-matched (20 DF bins),50,0.6273,0.0029,5,3496.0000,4659.7480,0,,5.0000,
+LR coef (DF>=0.1%),random,nearest DF rank,50,0.6243,0.0031,5,5157.8000,7275.7120,0,1.0560,5.0000,
+LR coef (DF>=0.1%),shortcut,,100,0.5221,,1,8167.0000,9137.9600,0,,,nobody nothing no because sad cats the only favorite cat naked tall sleeping happily something movie for brothers home friends vacation owner lost tv alone date after competition not to lunch new winning sleep in human humans professional homeless friend first empty crying tired before television birthday wife just dinner at outdoors eats fetch buying everyone fast big picnic summer park vehicle chasing break good desert parents husband school church inside pizza bed his concert nap hot eating outside things about watching person family fun house enjoys party office nearby wet ocean mall is eat she festival so indoors sleeps
+LR coef (DF>=0.1%),random,bin-matched (20 DF bins),100,0.6178,0.0020,5,5990.6000,5053.1980,0,,5.0000,
+LR coef (DF>=0.1%),random,nearest DF rank,100,0.6135,0.0016,5,7028.8000,6547.0840,0,1.1440,5.0000,
